@@ -2,12 +2,13 @@
  * @Author: fengyun2
  * @Date:   2016-07-12 00:58:53
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-12 14:05:00
+ * @Last Modified time: 2016-07-12 15:17:19
  */
 
 'use strict';
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { INCREMENT } from './mutation-types'
 
 // 告诉vue 使用 vuex
 Vue.use(Vuex)
@@ -25,7 +26,10 @@ const mutations = {
     // mutation 的第一个参数是当前的 state
     // 可以在函数里修改state
 
-    INCREMENT(state, amount) {
+/*    INCREMENT(state, amount) {
+        state.count = state.count + amount
+    }*/
+    [INCREMENT](state, amount) {
         state.count = state.count + amount
     }
 }
