@@ -2,7 +2,7 @@
 * @Author: fengyun2
 * @Date:   2016-07-12 00:58:53
 * @Last Modified by:   fengyun2
-* @Last Modified time: 2016-07-12 15:30:33
+* @Last Modified time: 2016-07-12 15:49:09
 */
 
 'use strict';
@@ -19,4 +19,7 @@ export const incrementAsync = ({dispatch, state}) => {
   setTimeout(() => {
     dispatch('INCREMENT', 1)
   }, 1000)  // dispatch 一个异步的 mutation
+}
+export const decrement = ({dispatch, state}, amount) => {
+  dispatch('DECREMENT', amount)
 }

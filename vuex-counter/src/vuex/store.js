@@ -2,13 +2,13 @@
  * @Author: fengyun2
  * @Date:   2016-07-12 00:58:53
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-12 15:17:19
+ * @Last Modified time: 2016-07-12 15:48:56
  */
 
 'use strict';
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { INCREMENT } from './mutation-types'
+import { INCREMENT, DECREMENT } from './mutation-types'
 
 // 告诉vue 使用 vuex
 Vue.use(Vuex)
@@ -29,8 +29,11 @@ const mutations = {
 /*    INCREMENT(state, amount) {
         state.count = state.count + amount
     }*/
-    [INCREMENT](state, amount) {
-        state.count = state.count + amount
+    [INCREMENT](state, amount = 1) {
+        state.count += amount
+    },
+    [DECREMENT](state, amount = 1) {
+        state.count -= amount
     }
 }
 
