@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div class="page-group">
         <div class="page page-current" id="page-action">
             我是App页面呀
@@ -10,7 +10,7 @@
 export default {
     ready() {
 
-    }, created() {}, data() {
+    }, created() { /* let deviceWidth = Math.min(640, document.documentElement.clientWidth) document.documentElement.style.fontSize = `${deviceWidth / 6.4}px`*/ }, data() {
         return {
             isIndex: true
         }
@@ -33,4 +33,3 @@ export default {
     opacity: 0;
 }
 </style>
- -->

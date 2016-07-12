@@ -7,7 +7,7 @@
             <br>
             <button @click="incrementAsync">Increment async</button>
             <br>
-            <button @click="decrement">DECREMENT</button>
+            <button @click="decrement(1)">DECREMENT</button>
             <br>
         </p>
     </div>
@@ -17,7 +17,7 @@ import {
     incrementCounter,
     incrementBy,
     incrementAsync,
-    DECREMENT
+    decrement
 } from '../vuex/actions'
 export default {
     vuex: {
@@ -25,7 +25,7 @@ export default {
             increment: incrementCounter,
             incrementBy,
             incrementAsync,
-            decrement: DECREMENT
+            decrement
         }
     }
 }
