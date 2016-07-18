@@ -72,7 +72,7 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.3.2",
     "vue-html-loader": "^1.2.2",
-    "vue-loader": "^9.0.3",
+    "vue-loader": "^8.5.2",
     "vue-style-loader": "^1.0.0",
     "webpack": "^2.1.0-beta.14",
     "webpack-combine-loaders": "^2.0.0",
