@@ -1,4 +1,4 @@
-### Usage
+### install
 
 ```
 npm install
@@ -7,3 +7,5 @@ open http://localhost:3000
 ```
 
 ### bug
+
+ `npm rebuild node-sass`

@@ -91,7 +91,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel',
             query: {
-                presets: ['es2015', 'stage-0', 'react'],
+                presets: ['es2015', 'stage-0', 'react', 'stage-2'],
                 plugins: ['transform-runtime'],
                 compact: false
             }
@@ -117,6 +117,10 @@ module.exports = {
             css: ExtractTextPlugin.extract('vue-style', 'css!sass!postcss'),
             sass: ExtractTextPlugin.extract('vue-style', 'css!sass!postcss'),
             js: 'babel',
+            query: {
+                presets: ['es2015', 'stage-0', 'stage-2'],
+                plugins: ['transform-runtime']
+            },
             html: 'vue-html',
             extract: true
         }
@@ -125,7 +129,7 @@ module.exports = {
         precss,
         autoprefixer({
             flexbox: true,
-            browsers: ['> 0.1%'],
+            browsers: ['> 0.01%'],
             cascade: false,
             supports: true
         })

@@ -1,22 +1,33 @@
 <template>
-    <div class="app">
-        <h1>vuex-shopping-cart</h1>
-        <hr>
-        <h2>Products</h2>
-        <product-list></product-list>
-        <hr>
-        <cart></cart>
+    <div>
+        <!-- <Display></Display>
+        <Increment></Increment> -->
     </div>
+    <router-view transition="fade" transition-mode="out-in"></router-view>
 </template>
 <script>
-import ProductList from './ProductList'
-import Cart from './Cart'
+// import Display from './Display'
+// import Increment from './Increment'
+// import store from '../vuex/store' //
 export default {
     components: {
-        ProductList,
-        Cart
-    }
+        // Display,
+        // Increment
+    },
+    // store // 在根组件加入 store,让他的子组件和 store 连接
 }
 </script>
 <style lang="sass" scoped>
+[v-cloak] {
+    display: none
+}
+
+.fade-transition {
+    transition: opacity .3s ease
+}
+
+.fade-enter,
+.fade-leave {
+    opacity: 0
+}
 </style>

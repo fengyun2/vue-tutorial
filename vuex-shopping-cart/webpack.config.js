@@ -67,7 +67,7 @@ module.exports = {
             loader: combineLoaders([{
                 loader: 'react-hot!babel',
                 query: {
-                    presets: ['es2015', 'stage-0'],
+                    presets: ['es2015', 'stage-0', 'stage-2'],
                     plugins: ['transform-runtime']
                 }
             }])
@@ -102,7 +102,7 @@ module.exports = {
             sass: 'vue-style!css!sass!postcss?sourceMap',
             js: 'babel',
             query: {
-                presets: ['es2015', 'stage-0'],
+                presets: ['es2015', 'stage-0', 'stage-2'],
                 plugins: ['transform-runtime']
             },
             html: 'vue-html'
@@ -112,7 +112,7 @@ module.exports = {
         precss,
         autoprefixer({
             flexbox: true,
-            browsers: ['> 0.1%'],
+            browsers: ['> 0.01%'],
             cascade: false,
             supports: true
         })

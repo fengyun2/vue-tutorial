@@ -41,5 +41,6 @@ export default {
     }
 }
 </script>
-<style>
+<style media="screen">
+  
 </style>

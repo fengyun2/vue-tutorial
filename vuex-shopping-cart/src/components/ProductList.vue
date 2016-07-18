@@ -27,4 +27,6 @@ import { getAllProducts, addToCart } from '../vuex/actions'
     }
   }
 </script>
-<style></style>
+<style media="screen">
+  
+</style>

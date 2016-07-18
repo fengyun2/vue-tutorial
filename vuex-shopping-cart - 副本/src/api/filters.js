@@ -1,0 +1,170 @@
+/*
+ * @Author: fengyun2
+ * @Date:   2016-06-22 10:02:47
+ * @Last Modified by:   fengyun2
+ * @Last Modified time: 2016-07-12 20:55:11
+ */
+
+'use strict';
+
+/**
+ * 是否是数组
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isArray = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]';
+};
+/**
+ * 是否是字符串
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isString = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object String]';
+};
+/**
+ * 是否为数字
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isNumber = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Number]';
+};
+/**
+ * 是否为undefined
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isUndefined = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Undefined]';
+};
+/**
+ * 是否为Boolean
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isBoolean = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Boolean]';
+};
+/**
+ * 是否为Object
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isObject = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Object]';
+};
+/**
+ * 是否为Function
+ * @param  {[type]}  obj [description]
+ * @return {Boolean}     [description]
+ */
+const isFunction = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Function]';
+};
+
+export const timeToNow = (time) => {
+    const t = parseFloat(new Date - new Date(time)) / 1000;
+    let str;
+    if (t) {
+        if (t > 60 && t < 3600) {
+            str = `${parseInt(t / 60.0, 10)}分钟前`;
+        } else if (t >= 3600 && t < 86400) {
+            str = `${parseInt(t / 3600.0, 10)}小时前`;
+        } else if (t >= 86400 && t < 86400 * 30) {
+            str = `${parseInt(t / 86400.0, 10)}天前`;
+        } else if (t >= 86400 * 30 && t < 86400 * 365) {
+            str = `${parseInt(t / (86400.0 * 30), 10)}个月前`;
+        } else if (t >= 86400 * 365) {
+            str = `${parseInt(t / (86400.0 * 365), 10)}年前`;
+        } else {
+            str = `${parseInt(t, 10)}秒前`;
+        }
+    }
+    return str;
+};
+export const isEmpty = (v) => {
+    if (isUndefined(v)) {
+        return true;
+    } else if (isString(v)) {
+        if (v.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length === 0) return true;
+    } else if (isBoolean(v)) {
+        if (!v) return true;
+    } else if (isNumber(v)) {
+        if (0 === v || isNaN(v)) return true;
+    } else if (isObject(v)) {
+        if (null === v || v.length === 0) return true;
+        for (var i in v) {
+            return false;
+        }
+        return true;
+    } else if (isArray(v)) {
+        if (null === v || v.length === 0) return true;
+        for (var i in v) {
+            return false;
+        }
+        return true;
+    }
+    return false;
+};
+
+export const isImage = (v) => {
+    let ext = v.substring(v.lastIndexOf('.') + 1)
+    switch (ext) {
+        case 'jpg':
+        case 'png':
+        case 'gif':
+            return true;
+        default:
+            return false;
+    }
+};
+
+export const reverse = (v) => {
+    return v.split('').reverse().join('')
+};
+
+/**
+ * CDN路径拼接
+ * @param  {[type]} v url路径
+ * @param  {[type]} w 宽度
+ * @param  {[type]} h 高度
+ * @param  {[type]} p 百分比
+ * @param  {[type]} t 类型(按比例/定宽高)
+ * @return {[type]}   [description]
+ */
+export const SpliceCDNUrl = (v, w = 100, h = 100, p = 50, t = 'fix') => {
+    console.log('t: ', t)
+    if (t == 'fix') { // 定宽高
+        v += '@' + w + 'w_' + h + 'h' + '_0e_80Q.';
+    } else if (t == 'scale') { // 按比例缩放
+        v += '@' + p + 'p';
+    }
+    console.log('new_url: ', v)
+    return v;
+};
+
+const digitsRE = /(\d{3})(?=\d)/g
+
+export function currency (value, currency, decimals) {
+  value = parseFloat(value)
+  if (!isFinite(value) || (!value && value !== 0)) return ''
+  currency = currency != null ? currency : '$'
+  decimals = decimals != null ? decimals : 2
+  var stringified = Math.abs(value).toFixed(decimals)
+  var _int = decimals
+    ? stringified.slice(0, -1 - decimals)
+    : stringified
+  var i = _int.length % 3
+  var head = i > 0
+    ? (_int.slice(0, i) + (_int.length > 3 ? ',' : ''))
+    : ''
+  var _float = decimals
+    ? stringified.slice(-1 - decimals)
+    : ''
+  var sign = value < 0 ? '-' : ''
+  return sign + currency + head +
+    _int.slice(i).replace(digitsRE, '$1,') +
+    _float
+}
