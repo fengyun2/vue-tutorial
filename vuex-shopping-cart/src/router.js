@@ -1,8 +1,8 @@
 /*
  * @Author: fengyun2
  * @Date:   2016-06-07 15:09:16
- * @Last Modified by:   baby
- * @Last Modified time: 2016-07-18 03:29:55
+ * @Last Modified by:   fengyun2
+ * @Last Modified time: 2016-07-18 03:39:21
  */
 
 export function configRouter(router) {
@@ -29,7 +29,7 @@ export function configRouter(router) {
     })
 
     router.beforeEach(({ to, from, next }) => {
-
+        FastClick.attach(document.body);
     })
 
     router.afterEach(function({ to }) {
