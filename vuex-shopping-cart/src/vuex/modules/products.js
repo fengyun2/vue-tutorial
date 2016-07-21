@@ -1,9 +1,9 @@
 /*
-* @Author: baby
-* @Date:   2016-07-12 20:31:53
-* @Last Modified by:   fengyun2
-* @Last Modified time: 2016-07-21 00:38:35
-*/
+ * @Author: baby
+ * @Date:   2016-07-12 20:31:53
+ * @Last Modified by:   fengyun2
+ * @Last Modified time: 2016-07-21 18:05:06
+ */
 
 'use strict';
 import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../mutation-types'
@@ -28,4 +28,3 @@ export default {
   state,
   mutations
 }
-

@@ -2,7 +2,7 @@
  * @Author: fengyun2
  * @Date:   2016-07-12 00:58:53
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-21 16:43:44
+ * @Last Modified time: 2016-07-21 18:06:44
  */
 
 'use strict';
@@ -36,7 +36,7 @@ export const getAllProducts = ({ dispatch, state }) => {
 }
 
 // cart
-export const addTocart = ({ dispatch }, product) => {
+export const addToCart = ({ dispatch }, product) => {
   if (product.inventory > 0) {
     dispatch(types.ADD_TO_CART, product.id)
   }

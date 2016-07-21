@@ -48,8 +48,8 @@ The available options are:
 
 ```
 
-但是升级后造成 vue-html-loader解析html错误:
+但是升级后造成 vue-html-loader解析html错误:(后台发现,原来是我把`:disabled= "!p.inventory"`写成`:disabled: "!p.inventory"`, 导致的错误)
 例如:
 ```bash
-Module build failed: Error: Parse Error: <button :disabled: "p.inventory" @click="addToCart(p)">Add to cart</button>
+Module build failed: Error: Parse Error: <button :disabled: "!p.inventory" @click="addToCart(p)">Add to cart</button>
 ```
