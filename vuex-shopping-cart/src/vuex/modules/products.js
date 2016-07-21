@@ -2,10 +2,10 @@
 * @Author: baby
 * @Date:   2016-07-12 20:31:53
 * @Last Modified by:   fengyun2
-* @Last Modified time: 2016-07-12 20:42:48
+* @Last Modified time: 2016-07-21 00:38:35
 */
 
-/*'use strict';
+'use strict';
 import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../mutation-types'
 
 // 该模块的初始状态
@@ -28,4 +28,4 @@ export default {
   state,
   mutations
 }
-*/
+

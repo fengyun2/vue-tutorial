@@ -1,18 +1,25 @@
 <template>
-    <div>
+    <div class="page">
         <Display></Display>
+        <hr>
         <Increment></Increment>
+        <hr>
+        <!-- product-list -->
+        <product-list></product-list>
+        <hr>
     </div>
     <router-view transition="fade" transition-mode="out-in"></router-view>
 </template>
 <script>
 import Display from './Display'
 import Increment from './Increment'
+import ProductList from './ProductList'
 import store from '../vuex/store' //
 export default {
     components: {
         Display,
         Increment,
+        ProductList
     },
     store // 在根组件加入 store,让他的子组件和 store 连接
 }

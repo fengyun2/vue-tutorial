@@ -2,16 +2,20 @@
  * @Author: fengyun2
  * @Date:   2016-07-12 00:58:53
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-12 15:48:56
+ * @Last Modified time: 2016-07-21 00:41:22
  */
 
 'use strict';
 import Vue from 'vue'
 import Vuex from 'vuex'
+
+// import Cart from './modules/cart'
+import products from './modules/products'
 import { INCREMENT, DECREMENT } from './mutation-types'
 
 // 告诉vue 使用 vuex
 Vue.use(Vuex)
+Vue.config.debug = true
 
 // 创建一个对象来保存应用启动时的初始状态
 const state = {
@@ -41,6 +45,10 @@ const mutations = {
 // 至此,这个 store 就可以连接到我们的应用中
 
 export default new Vuex.Store({
+    modules: {
+        // cart,
+        products
+    },
     state,
     mutations
 })
