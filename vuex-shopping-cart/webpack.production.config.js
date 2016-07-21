@@ -2,7 +2,7 @@
  * @Author: fengyun2
  * @Date:   2016-06-03 13:44:17
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-12 20:51:17
+ * @Last Modified time: 2016-07-21 17:40:33
  */
 
 /**
@@ -57,7 +57,7 @@ var version = json.version.split('.')
 var v = (version.shift() + '.' + version.join('')).replace(/0+$/, "0")
 var now = new Date()
 var snow = now.getFullYear() + '-' + (now.getMonth() + 1) +
-    '-' + now.getDate() + ':' + now.getHours()
+    '-' + now.getDate() + ' ' + now.getHours()
 
 var static_url = 'assets/';
 module.exports = {
@@ -80,11 +80,11 @@ module.exports = {
         }, {
             test: /\.css$/,
             include: path.resolve(__dirname, 'src'),
-            loader: ExtractTextPlugin.extract('style', 'css?-convertValues!postcss')
+            loader: ExtractTextPlugin.extract({fallbackLoader: 'style', loader:'css?-convertValues!postcss'})
         }, {
             test: /\.scss$/,
             include: path.resolve(__dirname, 'src'),
-            loader: ExtractTextPlugin.extract('style', 'css?-convertValues!sass!postcss')
+            loader: ExtractTextPlugin.extract({fallbackLoader: 'style', loader: 'css?-convertValues!sass!postcss'})
         }, {
             test: /\.js[x]?$/,
             include: path.resolve(__dirname, 'src'),
@@ -114,8 +114,8 @@ module.exports = {
     },
     vue: {
         loaders: {
-            css: ExtractTextPlugin.extract('vue-style', 'css!sass!postcss'),
-            sass: ExtractTextPlugin.extract('vue-style', 'css!sass!postcss'),
+            css: ExtractTextPlugin.extract({fallbackLoader: 'vue-style', loader:'css!sass!postcss'}),
+            sass: ExtractTextPlugin.extract({fallbackLoader: 'vue-style', loader:'css!sass!postcss'}),
             js: 'babel',
             query: {
                 presets: ['es2015', 'stage-0', 'stage-2'],
@@ -158,6 +158,7 @@ module.exports = {
         new webpack.optimize.DedupePlugin(),
         //压缩打包的文件
         new uglifyJsPlugin({
+            minimize: true,
             compress: {
                 warnings: false
             },
@@ -198,7 +199,7 @@ module.exports = {
                 console.log('版本是：' + JSON.stringify(stats.toJson().hash));
             });
         },
-        new ExtractTextPlugin(static_url + 'css/[name].[chunkhash:16].css', { allChunks: true }),
+        new ExtractTextPlugin({filename: static_url + 'css/[name].[chunkhash:16].css', disable: false, allChunks: true }),
         new webpack.BannerPlugin('built in ' + snow + ' version ' + v + ' by luyun\n')
     ]
 };

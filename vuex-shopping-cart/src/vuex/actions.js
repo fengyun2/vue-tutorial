@@ -2,7 +2,7 @@
  * @Author: fengyun2
  * @Date:   2016-07-12 00:58:53
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-21 00:54:11
+ * @Last Modified time: 2016-07-21 16:43:44
  */
 
 'use strict';
@@ -33,4 +33,21 @@ export const getAllProducts = ({ dispatch, state }) => {
   shop.getProducts(products => {
     dispatch(types.RECEIVE_PRODUCTS, products)
   })
+}
+
+// cart
+export const addTocart = ({ dispatch }, product) => {
+  if (product.inventory > 0) {
+    dispatch(types.ADD_TO_CART, product.id)
+  }
+}
+
+export const checkout = ({ dispatch, state }, products) => {
+  const savedCartItems = [...state.cart.added]
+  dispatch(types.CHECKOUT_REQUEST)
+  shop.buyProducts(
+    products,
+    () => dispatch(types.CHECKOUT_SUCCESS),
+    () => dispatch(types.CHECKOUT_FAILURE, savedCartItems)
+  )
 }

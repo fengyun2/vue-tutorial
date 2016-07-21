@@ -2,7 +2,7 @@
 * @Author: fengyun2
 * @Date:   2016-06-03 13:44:17
 * @Last Modified by:   fengyun2
-* @Last Modified time: 2016-07-18 04:04:48
+* @Last Modified time: 2016-07-21 16:44:58
 */
 'use strict';
 
@@ -11,7 +11,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import lazyload from 'vue-lazyload'
-import { timeToNow, reverse , isEmpty, isImage, SpliceCDNUrl } from './api/filters'
+import { timeToNow, reverse , isEmpty, isImage, SpliceCDNUrl, currency } from './api/filters'
 // import filters from './api/filters'
 import LyApp from './api/lyapp'
 
@@ -24,6 +24,7 @@ Vue.filter('reverse', reverse)
 Vue.filter('isEmpty', isEmpty)
 Vue.filter('isImage', isImage)
 Vue.filter('SpliceCDNUrl', SpliceCDNUrl)
+Vue.filter('currency', currency)
 //实例化Vue的filter
 // Object.keys(filters).forEach(k => Vue.filter(k, filters[k]));
 

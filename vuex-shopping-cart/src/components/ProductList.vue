@@ -3,10 +3,7 @@
         <li v-for="p in products">
             {{p.title}} - {{p.price | currency}}
             <br>
-            <button
-              :disabled: "p.inventory"
-              @click="addToCart(p)"
-            >Add to cart</button>
+            <button :disabled: "p.inventory" @click="addToCart(p)">Add to cart</button>
         </li>
     </ul>
 </template>
@@ -28,5 +25,5 @@ import { getAllProducts, addToCart } from '../vuex/actions'
   }
 </script>
 <style media="screen">
-  
+
 </style>

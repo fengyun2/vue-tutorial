@@ -7,6 +7,7 @@
         <!-- product-list -->
         <product-list></product-list>
         <hr>
+        <cart></cart>
     </div>
     <router-view transition="fade" transition-mode="out-in"></router-view>
 </template>
@@ -14,12 +15,14 @@
 import Display from './Display'
 import Increment from './Increment'
 import ProductList from './ProductList'
+import Cart from './Cart'
 import store from '../vuex/store' //
 export default {
     components: {
         Display,
         Increment,
-        ProductList
+        ProductList,
+        Cart
     },
     store // 在根组件加入 store,让他的子组件和 store 连接
 }
