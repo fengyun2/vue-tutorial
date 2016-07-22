@@ -2,17 +2,17 @@
  * @Author: fengyun2
  * @Date:   2016-06-07 15:09:16
  * @Last Modified by:   fengyun2
- * @Last Modified time: 2016-07-18 03:39:21
+ * @Last Modified time: 2016-07-22 10:41:03
  */
 
 export function configRouter(router) {
     router.map({
-        '/': { // 首页
-            name: 'index',
-            component: function(resolve) {
-                require(['./components/Display'], resolve)
-            }
-        },
+        // '/': { // 首页
+        //     name: 'index',
+        //     component: function(resolve) {
+        //         require(['./components/Display'], resolve)
+        //     }
+        // },
         '/index': { // 首页
             name: 'index',
             component: function(resolve) {
@@ -25,6 +25,12 @@ export function configRouter(router) {
                 require(['./components/Display'], resolve)
             }
         },
+        'display': {
+            name: 'display',
+            component: function(resolve) {
+                require(['./components/Display'], resolve)
+            }
+        }
 
     })
 

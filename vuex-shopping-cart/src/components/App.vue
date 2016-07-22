@@ -8,8 +8,11 @@
         <product-list></product-list>
         <hr>
         <cart></cart>
+
+
+    <a href="#" v-link="{path:'display'}">click me</a>
     </div>
-    <router-view transition="fade" transition-mode="out-in"></router-view>
+    <!-- <router-view transition="fade" transition-mode="out-in"></router-view> -->
 </template>
 <script>
 import Display from './Display'
