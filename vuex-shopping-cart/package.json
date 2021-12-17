@@ -92,7 +92,7 @@
     "react-router": "^2.5.2",
     "vue": "^1.0.24",
     "vue-async-data": "^1.0.2",
-    "vue-lazyload": "^0.4.3",
+    "vue-lazyload": "^0.9.5",
     "vue-resource": "^0.7.2",
     "vue-router": "^0.7.13",
     "vue-swipe": "^0.2.6",
